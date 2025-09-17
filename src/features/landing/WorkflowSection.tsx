@@ -10,18 +10,18 @@ interface WorkflowSectionProps {
 
 export function WorkflowSection({ title, steps }: WorkflowSectionProps) {
   return (
-    <section id="workflow" className="bg-slate-900/40 py-24">
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <h2 className="section-heading">{title}</h2>
-        <ol className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+    <section id="workflow" className="py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <h2 className="section-heading text-center lg:text-left">{title}</h2>
+        <ol className="mt-10 grid gap-6 sm:mt-12 sm:gap-8 md:grid-cols-2 lg:grid-cols-5">
           {steps.map((step, index) => (
             <li
               key={step.title}
-              className="group flex flex-col rounded-3xl border border-white/5 bg-white/5 p-6 transition hover:border-primary/50 hover:bg-slate-900/60"
+              className="group flex flex-col rounded-3xl border border-white/5 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
             >
-              <span className="text-sm font-semibold uppercase tracking-[0.4em] text-primary/70">{`${index + 1}`.padStart(2, "0")}</span>
-              <p className="mt-4 text-lg font-semibold text-white">{step.title}</p>
-              <p className="mt-3 text-sm text-slate-300">{step.description}</p>
+              <span className="text-sm font-semibold uppercase tracking-[0.4em] text-zinc-500">{`${index + 1}`.padStart(2, "0")}</span>
+              <p className="mt-4 text-lg font-semibold text-zinc-50">{step.title}</p>
+              <p className="mt-3 text-sm text-zinc-400">{step.description}</p>
             </li>
           ))}
         </ol>

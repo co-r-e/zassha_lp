@@ -6,10 +6,10 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#4E46E5",
-          dark: "#3A36B5"
+          DEFAULT: "#1F1F1F",
+          dark: "#111111"
         },
-        accent: "#F97316"
+        accent: "#F5F5F5"
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
