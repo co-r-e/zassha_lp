@@ -12,10 +12,6 @@ interface HeroProps {
     label: string;
     href: string;
   };
-  secondaryCta?: {
-    label: string;
-    href: string;
-  };
   videoSrc: string;
 }
 

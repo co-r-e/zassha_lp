@@ -60,31 +60,31 @@ export function LanguageSwitcher() {
       <button
         ref={triggerRef}
         type="button"
-        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-zinc-100 transition hover:border-white/30 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
-        <GlobeIcon className="h-4 w-4 text-slate-200" />
+        <GlobeIcon className="h-4 w-4 text-zinc-200" />
         <span>{current.code}</span>
-        <ChevronDownIcon className={`h-4 w-4 text-slate-300 transition ${open ? "rotate-180" : ""}`} />
+        <ChevronDownIcon className={`h-4 w-4 text-zinc-300 transition ${open ? "rotate-180" : ""}`} />
       </button>
       {open ? (
         <div
           ref={menuRef}
-          className="absolute right-0 mt-2 w-40 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur shadow-xl"
+          className="absolute right-0 mt-2 w-40 overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/95 backdrop-blur shadow-xl"
         >
           {options.map((option) => (
             <button
               key={option.code}
               type="button"
               className={`flex w-full items-center justify-between px-4 py-3 text-sm transition hover:bg-white/10 ${
-                option.code === current.code ? "text-white" : "text-slate-300"
+                option.code === current.code ? "text-white" : "text-zinc-300"
               }`}
               onClick={() => selectLanguage(option)}
             >
               <span>{option.label}</span>
-              <span className="text-xs uppercase text-slate-400">{option.code}</span>
+              <span className="text-xs uppercase text-zinc-400">{option.code}</span>
             </button>
           ))}
         </div>
