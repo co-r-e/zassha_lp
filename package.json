@@ -9,8 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "serve": "next start",
-    "export": "next build && next export",
-    "postexport": "node scripts/copy-404.js"
+    "postbuild": "node scripts/copy-404.js"
   },
   "dependencies": {
     "next": "^14.2.5",
