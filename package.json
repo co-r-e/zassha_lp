@@ -9,7 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "serve": "next start",
-    "postbuild": "node scripts/copy-404.js"
+    "postbuild": "node scripts/sync-docs.js"
   },
   "dependencies": {
     "next": "^14.2.5",
