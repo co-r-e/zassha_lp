@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  @apply bg-slate-950 text-slate-100 antialiased;
+}
+
+main {
+  @apply bg-slate-950;
+}
+
+.section-heading {
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  @apply text-3xl md:text-4xl font-semibold tracking-tight text-white;
+}
+
+.subheading {
+  @apply text-lg text-slate-300 md:text-xl;
+}
