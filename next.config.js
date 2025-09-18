@@ -8,6 +8,7 @@ const nextConfig = (() => {
     images: {
       unoptimized: true
     },
+    output: "export",
     ...(normalizedBasePath
       ? {
           basePath: normalizedBasePath,
