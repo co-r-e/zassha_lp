@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 interface LanguageOption {
   code: "EN" | "JA";
@@ -11,7 +12,7 @@ interface LanguageOption {
 
 const options: LanguageOption[] = [
   { code: "EN", label: "English", href: "/" },
-  { code: "JA", label: "日本語", href: "/ja" }
+  { code: "JA", label: "日本語", href: "/ja/" }
 ];
 
 export function LanguageSwitcher() {
@@ -50,8 +51,9 @@ export function LanguageSwitcher() {
 
   const selectLanguage = (option: LanguageOption) => {
     setOpen(false);
-    if (pathname !== option.href) {
-      router.push(option.href);
+    const normalizedHref = option.href === "/" ? "/" : option.href.replace(/\/$/, "");
+    if (pathname !== normalizedHref) {
+      router.push(withBasePath(option.href));
     }
   };
 
@@ -60,14 +62,14 @@ export function LanguageSwitcher() {
       <button
         ref={triggerRef}
         type="button"
-        className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-100 transition hover:border-white/30 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        className="flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[0.7rem] font-medium text-zinc-100 transition hover:border-white/30 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
         aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
-        <GlobeIcon className="h-3 w-3 text-zinc-200 sm:h-4 sm:w-4" />
-        <span className="tracking-[0.08em] sm:tracking-[0.12em]">{current.code}</span>
-        <ChevronDownIcon className={`h-3 w-3 text-zinc-300 transition sm:h-4 sm:w-4 ${open ? "rotate-180" : ""}`} />
+        <GlobeIcon className="h-2.5 w-2.5 text-zinc-200 sm:h-4 sm:w-4" />
+        <span className="tracking-[0.08em] text-[0.68rem] sm:text-sm sm:tracking-[0.12em]">{current.code}</span>
+        <ChevronDownIcon className={`h-2.5 w-2.5 text-zinc-300 transition sm:h-4 sm:w-4 ${open ? "rotate-180" : ""}`} />
       </button>
       {open ? (
         <div

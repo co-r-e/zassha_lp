@@ -29,6 +29,8 @@ export const commonMetadata = (locale: "en" | "ja"): Metadata => {
   const { title, description } = locale === "ja" ? defaultSeo.ja : defaultSeo.en;
   const ogpImage = withSiteUrl("/ogp.png");
   const favicon = withSiteUrl("/favicon.svg");
+  const canonical = withSiteUrl(locale === "ja" ? "/ja/" : "/");
+  const domain = new URL(canonical).hostname;
 
   return {
     title,
@@ -37,11 +39,13 @@ export const commonMetadata = (locale: "en" | "ja"): Metadata => {
     openGraph: {
       title,
       description,
-      url: withSiteUrl(locale === "ja" ? "/ja/" : "/"),
+      url: canonical,
       siteName: "ZASSHA",
       images: [
         {
           url: ogpImage,
+          secureUrl: ogpImage,
+          type: "image/png",
           width: 1200,
           height: 630,
           alt: "ZASSHA product preview"
@@ -53,12 +57,13 @@ export const commonMetadata = (locale: "en" | "ja"): Metadata => {
     twitter: {
       card: "summary_large_image",
       site: "@co_r_e_inc",
+      creator: "@co_r_e_inc",
       title,
       description,
       images: [ogpImage]
     },
     alternates: {
-      canonical: withSiteUrl(locale === "ja" ? "/ja/" : "/"),
+      canonical,
       languages: {
         en: withSiteUrl("/"),
         ja: withSiteUrl("/ja/")
@@ -68,6 +73,13 @@ export const commonMetadata = (locale: "en" | "ja"): Metadata => {
       icon: favicon,
       shortcut: favicon,
       apple: favicon
+    },
+    other: {
+      "twitter:domain": domain,
+      "twitter:url": canonical,
+      "twitter:image:alt": "ZASSHA product preview",
+      "og:image:secure_url": ogpImage,
+      "og:image:type": "image/png"
     }
   };
 };

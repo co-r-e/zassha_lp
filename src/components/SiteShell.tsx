@@ -30,11 +30,11 @@ export function SiteShell({ locale, children }: SiteShellProps) {
   return (
     <div className="min-h-screen flex flex-col bg-neutral-950">
       <header className="sticky top-0 z-40 border-b border-white/10 backdrop-blur bg-neutral-950/80">
-        <div className="mx-auto flex w-full max-w-[90rem] items-center justify-between px-4 py-4 sm:px-6">
+        <div className="mx-auto flex w-full max-w-[90rem] items-center justify-between px-4 py-3.5 sm:px-6 sm:py-4">
           <Link href={footerCopy.homeHref} className="flex items-center" aria-label="ZASSHA home">
-            <Image src={logoSrc} alt="ZASSHA" width={148} height={44} priority className="h-8 w-auto sm:h-10" />
+            <Image src={logoSrc} alt="ZASSHA" width={148} height={44} priority className="h-7 w-auto sm:h-10" />
           </Link>
-          <nav className="flex flex-nowrap items-center justify-end gap-3 text-sm text-zinc-300 sm:gap-4">
+          <nav className="flex flex-nowrap items-center justify-end gap-2.5 text-sm text-zinc-300 sm:gap-4">
             <LanguageSwitcher />
             <div className="hidden sm:block">
               <Button href="https://github.com/co-r-e/Zassha" targetBlank>
@@ -52,7 +52,7 @@ export function SiteShell({ locale, children }: SiteShellProps) {
                 alt="ZASSHA on Product Hunt"
                 width={156}
                 height={34}
-                className="h-8 w-auto sm:h-10"
+                className="h-7 w-auto sm:h-10"
                 loading="lazy"
                 unoptimized
               />

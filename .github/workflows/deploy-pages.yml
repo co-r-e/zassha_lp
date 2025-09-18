@@ -42,8 +42,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           rm -rf docs
-          mkdir -p docs
-          cp -R out/. docs/
+          mv out docs
           touch docs/.nojekyll
 
       - name: Upload artifact
