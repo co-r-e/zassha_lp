@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Button } from "@/components/ui/Button";
 import { withBasePath } from "@/lib/basePath";
 
 interface SiteShellProps {
@@ -31,10 +32,31 @@ export function SiteShell({ locale, children }: SiteShellProps) {
       <header className="sticky top-0 z-40 border-b border-white/10 backdrop-blur bg-neutral-950/80">
         <div className="mx-auto flex w-full max-w-[90rem] items-center justify-between px-4 py-4 sm:px-6">
           <Link href={footerCopy.homeHref} className="flex items-center" aria-label="ZASSHA home">
-            <Image src={logoSrc} alt="ZASSHA" width={148} height={44} priority className="h-10 w-auto" />
+            <Image src={logoSrc} alt="ZASSHA" width={148} height={44} priority className="h-8 w-auto sm:h-10" />
           </Link>
-          <nav className="flex items-center gap-4 text-sm text-zinc-300">
+          <nav className="flex flex-nowrap items-center justify-end gap-3 text-sm text-zinc-300 sm:gap-4">
             <LanguageSwitcher />
+            <div className="hidden sm:block">
+              <Button href="https://github.com/co-r-e/Zassha" targetBlank>
+                Download on GitHub
+              </Button>
+            </div>
+            <a
+              href="https://www.producthunt.com/products/zassha?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-zassha"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center"
+            >
+              <Image
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1015671&theme=light&t=1758164064047"
+                alt="ZASSHA on Product Hunt"
+                width={156}
+                height={34}
+                className="h-8 w-auto sm:h-10"
+                loading="lazy"
+                unoptimized
+              />
+            </a>
           </nav>
         </div>
       </header>

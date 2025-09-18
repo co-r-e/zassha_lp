@@ -60,14 +60,14 @@ export function LanguageSwitcher() {
       <button
         ref={triggerRef}
         type="button"
-        className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-zinc-100 transition hover:border-white/30 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-100 transition hover:border-white/30 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
         aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
-        <GlobeIcon className="h-4 w-4 text-zinc-200" />
-        <span>{current.code}</span>
-        <ChevronDownIcon className={`h-4 w-4 text-zinc-300 transition ${open ? "rotate-180" : ""}`} />
+        <GlobeIcon className="h-3 w-3 text-zinc-200 sm:h-4 sm:w-4" />
+        <span className="tracking-[0.08em] sm:tracking-[0.12em]">{current.code}</span>
+        <ChevronDownIcon className={`h-3 w-3 text-zinc-300 transition sm:h-4 sm:w-4 ${open ? "rotate-180" : ""}`} />
       </button>
       {open ? (
         <div

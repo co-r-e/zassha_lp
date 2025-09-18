@@ -47,7 +47,7 @@ export function HeroSection({ eyebrow, title, description, primaryCta, videoSrc 
           }}
         />
       </div>
-      <div className="mx-auto flex w-full max-w-[90rem] flex-col-reverse items-center gap-10 px-3 pb-16 pt-14 sm:px-5 sm:pb-20 sm:pt-16 lg:flex-row lg:gap-24 lg:pb-24 lg:pt-24 xl:gap-28">
+      <div className="mx-auto flex w-full max-w-[90rem] flex-col-reverse items-center gap-6 px-3 pb-16 pt-14 sm:px-5 sm:pb-20 sm:pt-16 lg:flex-row lg:gap-20 lg:pb-24 lg:pt-24 xl:gap-24">
         <div className="order-2 w-full space-y-6 text-center lg:order-1 lg:flex-[1.1] lg:max-w-[56rem] xl:max-w-[60rem] lg:space-y-8 lg:text-left">
           <div className="space-y-4">
             <p className="text-sm font-semibold uppercase tracking-[0.4em] text-zinc-400">{eyebrow}</p>
@@ -55,21 +55,21 @@ export function HeroSection({ eyebrow, title, description, primaryCta, videoSrc 
             <p className="text-base text-zinc-400 sm:text-lg md:text-xl">{description}</p>
           </div>
           <div className="flex w-full flex-wrap items-center justify-center gap-4 lg:justify-start">
-            <Button href={primaryCta.href} targetBlank>
+            <Button href={primaryCta.href} targetBlank className="w-full max-w-[250px]">
               {primaryCta.label}
             </Button>
             <a
               href="https://www.producthunt.com/products/zassha?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-zassha"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center"
+              className="inline-flex w-full max-w-[250px] items-center justify-center"
             >
               <Image
                 src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1015671&theme=light&t=1758164064047"
                 alt="ZASSHA on Product Hunt"
                 width={250}
                 height={54}
-                className="h-12 w-auto"
+                className="h-12 w-full object-contain"
                 loading="lazy"
                 unoptimized
               />
