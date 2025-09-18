@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import { Button } from "@/components/ui/Button";
@@ -57,6 +58,22 @@ export function HeroSection({ eyebrow, title, description, primaryCta, videoSrc 
             <Button href={primaryCta.href} targetBlank>
               {primaryCta.label}
             </Button>
+            <a
+              href="https://www.producthunt.com/products/zassha?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-zassha"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center"
+            >
+              <Image
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1015671&theme=light&t=1758164064047"
+                alt="ZASSHA on Product Hunt"
+                width={250}
+                height={54}
+                className="h-12 w-auto"
+                loading="lazy"
+                unoptimized
+              />
+            </a>
           </div>
         </div>
         <div className="order-1 w-full lg:order-2 lg:flex-1">

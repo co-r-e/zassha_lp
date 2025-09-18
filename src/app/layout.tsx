@@ -1,69 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import "./globals.css";
 import { Inter, Plus_Jakarta_Sans as PlusJakartaSans } from "next/font/google";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { withBasePath } from "@/lib/basePath";
-import { metadataBase as resolvedMetadataBase, withSiteUrl } from "@/lib/url";
+import { structuredData, commonMetadata } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const plusJakarta = PlusJakartaSans({ subsets: ["latin"], variable: "--font-plus-jakarta" });
 
-const siteName = "ZASSHA";
-const siteDescription =
-  "ZASSHA is an AI manual creation assistant that records your workflow, extracts steps automatically, and turns them into shareable guides.";
-
 const logoSrc = withBasePath("/logo.svg");
-const faviconSrc = withBasePath("/favicon.svg");
-const ogpSrc = withSiteUrl("/ogp.png");
+export const metadata: Metadata = commonMetadata("en");
 
-export const metadata: Metadata = {
-  title: {
-    default: `${siteName} | AI Manual Assistant`,
-    template: `%s | ${siteName}`
-  },
-  description: siteDescription,
-  metadataBase: resolvedMetadataBase,
-  openGraph: {
-    title: `${siteName} | AI Manual Assistant`,
-    description: siteDescription,
-    images: [
-      {
-        url: ogpSrc,
-        width: 1200,
-        height: 630,
-        alt: "ZASSHA product preview"
-      }
-    ],
-    siteName,
-    locale: "en_US",
-    type: "website"
-  },
-  icons: {
-    icon: faviconSrc,
-    shortcut: faviconSrc,
-    apple: faviconSrc
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteName} | AI Manual Assistant`,
-    description: siteDescription,
-    images: [ogpSrc],
-    site: "@co_r_e_inc"
-  },
-  alternates: {
-    canonical: withSiteUrl("/"),
-    languages: {
-      en: withSiteUrl("/"),
-      ja: withSiteUrl("/ja/")
-    }
-  }
-};
+const jsonLd = structuredData();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+      <head>
+        <meta httpEquiv="Content-Language" content="en" />
+        <Script id="structured-data" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(jsonLd)}
+        </Script>
+      </head>
       <body className="bg-neutral-950 text-zinc-100 antialiased">
         <div className="min-h-screen flex flex-col bg-neutral-950">
           <header className="sticky top-0 z-40 border-b border-white/10 backdrop-blur bg-neutral-950/80">
