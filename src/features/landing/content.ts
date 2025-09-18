@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/basePath";
+
 export const enContent = {
   hero: {
     eyebrow: "AI Manual Assistant",
@@ -8,7 +10,7 @@ export const enContent = {
       label: "Download on GitHub",
       href: "https://github.com/co-r-e/Zassha"
     },
-    videoSrc: "/zassha_demo2_en.mp4"
+    videoSrc: withBasePath("/zassha_demo2_en.mp4")
   },
   highlights: [
     {
@@ -132,7 +134,7 @@ export const jaContent = {
       label: "Gitでダウンロード",
       href: "https://github.com/co-r-e/Zassha"
     },
-    videoSrc: "/zassha_demo2_ja.mp4"
+    videoSrc: withBasePath("/zassha_demo2_ja.mp4")
   },
   highlights: [
     {
