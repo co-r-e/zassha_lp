@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { metadataBase, siteUrl, withSiteUrl } from "@/lib/url";
+import { canonicalSiteUrl, metadataBase, withSiteUrl } from "@/lib/url";
 
 interface PageSeo {
   en: {
@@ -27,7 +27,7 @@ export const defaultSeo: PageSeo = {
 
 export const commonMetadata = (locale: "en" | "ja"): Metadata => {
   const { title, description } = locale === "ja" ? defaultSeo.ja : defaultSeo.en;
- const ogpImage = withSiteUrl("/ogp.png");
+  const ogpImage = withSiteUrl("/ogp.png");
   const favicon = withSiteUrl("/favicon.svg");
 
   return {
@@ -78,7 +78,7 @@ export const structuredData = () => {
     "@type": "Organization",
     "@id": "https://co-r-e.net/#organization",
     name: "CORe Inc.",
-    url: siteUrl,
+    url: canonicalSiteUrl,
     logo: withSiteUrl("/logo.svg"),
     sameAs: ["https://github.com/co-r-e", "https://co-r-e.net"],
     contactPoint: [

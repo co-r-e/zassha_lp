@@ -39,10 +39,17 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      - name: Prepare Pages artifact
+        run: |
+          rm -rf docs
+          mkdir -p docs
+          cp -R out/. docs/
+          touch docs/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: docs
 
   deploy:
     runs-on: ubuntu-latest

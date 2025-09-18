@@ -5,6 +5,7 @@ const nextConfig = (() => {
 
   return {
     reactStrictMode: true,
+    trailingSlash: true,
     images: {
       unoptimized: true
     },
