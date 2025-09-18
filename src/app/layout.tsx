@@ -5,6 +5,7 @@ import "./globals.css";
 import { Inter, Plus_Jakarta_Sans as PlusJakartaSans } from "next/font/google";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { withBasePath } from "@/lib/basePath";
+import { metadataBase as resolvedMetadataBase, withSiteUrl } from "@/lib/url";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const plusJakarta = PlusJakartaSans({ subsets: ["latin"], variable: "--font-plus-jakarta" });
@@ -15,7 +16,7 @@ const siteDescription =
 
 const logoSrc = withBasePath("/logo.svg");
 const faviconSrc = withBasePath("/favicon.svg");
-const ogpSrc = withBasePath("/ogp.png");
+const ogpSrc = withSiteUrl("/ogp.png");
 
 export const metadata: Metadata = {
   title: {
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`
   },
   description: siteDescription,
+  metadataBase: resolvedMetadataBase,
   openGraph: {
     title: `${siteName} | AI Manual Assistant`,
     description: siteDescription,
@@ -51,10 +53,10 @@ export const metadata: Metadata = {
     site: "@co_r_e_inc"
   },
   alternates: {
-    canonical: "/",
+    canonical: withSiteUrl("/"),
     languages: {
-      en: "/",
-      ja: "/ja"
+      en: withSiteUrl("/"),
+      ja: withSiteUrl("/ja/")
     }
   }
 };
