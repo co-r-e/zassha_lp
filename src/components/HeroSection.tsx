@@ -47,8 +47,8 @@ export function HeroSection({ eyebrow, title, description, primaryCta, videoSrc 
           }}
         />
       </div>
-      <div className="mx-auto flex w-full max-w-[90rem] flex-col-reverse items-center gap-10 px-3 pb-16 pt-14 sm:px-5 sm:pb-20 sm:pt-16 lg:flex-row lg:gap-28 lg:pb-24 lg:pt-24">
-        <div className="order-2 w-full space-y-6 text-center lg:order-1 lg:flex-[0.9] lg:max-w-[38rem] lg:space-y-8 lg:text-left">
+      <div className="mx-auto flex w-full max-w-[90rem] flex-col-reverse items-center gap-10 px-3 pb-16 pt-14 sm:px-5 sm:pb-20 sm:pt-16 lg:flex-row lg:gap-24 lg:pb-24 lg:pt-24 xl:gap-28">
+        <div className="order-2 w-full space-y-6 text-center lg:order-1 lg:flex-[1.1] lg:max-w-[56rem] xl:max-w-[60rem] lg:space-y-8 lg:text-left">
           <div className="space-y-4">
             <p className="text-sm font-semibold uppercase tracking-[0.4em] text-zinc-400">{eyebrow}</p>
             <h1 className="text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl lg:text-6xl">{title}</h1>
@@ -76,7 +76,7 @@ export function HeroSection({ eyebrow, title, description, primaryCta, videoSrc 
             </a>
           </div>
         </div>
-        <div className="order-1 w-full lg:order-2 lg:flex-[1.8]">
+        <div className="order-1 w-full lg:order-2 lg:flex-[1.6]">
           <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-[2.5rem] bg-neutral-900 shadow-[0_55px_120px_-48px_rgba(15,15,15,0.92)] sm:mb-10">
             <video
               className="h-full w-full object-cover"
