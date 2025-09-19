@@ -73,12 +73,16 @@ a.button.secondary:hover,
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 10;
   backdrop-filter: blur(12px);
   background: rgba(9, 9, 11, 0.78);
   border-bottom: 1px solid var(--border);
+  overflow-x: clip;
 }
 
 .site-header__inner {
