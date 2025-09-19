@@ -772,7 +772,7 @@ small {
 }
 
 @media (max-width: 640px) {
-  :root { --header-h: 62px; --hero-gap: 16px; --hero-space-multiplier: 1.5; }
+  :root { --header-h: 62px; --hero-gap: 16px; --hero-space-multiplier: 1.35; }
   .site-header {
     position: fixed;
     top: 0;
