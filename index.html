@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Manual Assistant | ZASSHA</title>
+    <meta
+      name="description"
+      content="ZASSHA turns screen recordings into shareable SOPs. Analyze videos, capture repeatable steps automatically, and export polished manuals in minutes."
+    />
+    <link rel="canonical" href="https://co-r-e.github.io/zassha_lp/" />
+    <link rel="alternate" href="https://co-r-e.github.io/zassha_lp/ja/" hreflang="ja" />
+    <link rel="apple-touch-icon" href="icons/apple.svg" />
+    <link rel="icon" href="icons/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://co-r-e.github.io/zassha_lp/" />
+    <meta property="og:site_name" content="ZASSHA" />
+    <meta property="og:title" content="AI Manual Assistant | ZASSHA" />
+    <meta
+      property="og:description"
+      content="ZASSHA turns screen recordings into shareable SOPs. Analyze videos, capture repeatable steps automatically, and export polished manuals in minutes."
+    />
+    <meta property="og:image" content="https://co-r-e.github.io/zassha_lp/icons/ogp.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ZASSHA product preview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@co_r_e_inc" />
+    <meta name="twitter:title" content="AI Manual Assistant | ZASSHA" />
+    <meta
+      name="twitter:description"
+      content="ZASSHA turns screen recordings into shareable SOPs. Analyze videos, capture repeatable steps automatically, and export polished manuals in minutes."
+    />
+    <meta name="twitter:image" content="https://co-r-e.github.io/zassha_lp/icons/ogp.png" />
+    <meta name="twitter:url" content="https://co-r-e.github.io/zassha_lp/" />
+    <meta name="twitter:image:alt" content="ZASSHA product preview" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="./">
+          <img src="icons/logo.svg" alt="ZASSHA" width="140" height="40" loading="lazy" />
+        </a>
+        <div class="header-actions">
+          <div class="language-toggle">
+            <button class="language-toggle__button" type="button" aria-haspopup="true" aria-expanded="false">
+              <span class="language-toggle__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a15 15 0 0 1 0 20"></path>
+                  <path d="M12 2a15 15 0 0 0 0 20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </span>
+              <span class="language-toggle__label">EN</span>
+              <span class="language-toggle__chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="language-toggle__menu">
+              <button class="language-toggle__option" type="button" aria-current="true" data-href="./">
+                <span>English</span>
+                <strong>EN</strong>
+              </button>
+              <button class="language-toggle__option" type="button" data-href="ja/">
+                <span>日本語</span>
+                <strong>JA</strong>
+              </button>
+            </div>
+          </div>
+          <a class="button header-download" href="https://github.com/co-r-e/Zassha" target="_blank" rel="noopener noreferrer">
+            Download on GitHub
+          </a>
+          <a
+            href="https://www.producthunt.com/products/zassha?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-zassha"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1015671&theme=light&t=1758164064047"
+              alt="ZASSHA on Product Hunt"
+              width="250"
+              height="54"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">AI Manual Assistant</p>
+          <h1 class="hero__title">Record once. ZASSHA builds the manual for you.</h1>
+          <p class="hero__lead">
+            Upload a screen recording, click Analyze, and ZASSHA extracts clean, reproducible steps with thumbnails, rich context,
+            and exports for Word, PowerPoint, or Excel in minutes.
+          </p>
+          <div class="hero__cta">
+            <a class="button" href="https://github.com/co-r-e/Zassha" target="_blank" rel="noopener noreferrer">
+              Download on GitHub
+            </a>
+            <a
+              href="https://www.producthunt.com/products/zassha?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-zassha"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1015671&theme=light&t=1758164064047"
+                alt="ZASSHA on Product Hunt"
+                width="250"
+                height="54"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <video src="media/zassha_demo_en.mp4" controls autoplay playsinline loop muted preload="auto"></video>
+        </div>
+      </section>
+
+      <section class="grid-features" id="features">
+        <article class="card">
+          <h3>Automatic step extraction</h3>
+          <p>
+            ZASSHA analyzes your workflow video, detects each operation, and turns it into a timeline of steps complete with timestamps,
+            tools, and AI-generated explanations.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Share-ready exports</h3>
+          <p>
+            Ship polished documentation instantly with Word, PowerPoint, or Excel exports that include screenshots, captions, and
+            speaker notes.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Works with long recordings</h3>
+          <p>
+            Resumable uploads keep analysis smooth. Optionally enable server-side segmentation via ffmpeg for hour-long walkthroughs.
+          </p>
+        </article>
+      </section>
+
+      <section id="workflow">
+        <h2 class="section-heading">Five-minute publishing workflow</h2>
+        <div class="workflow-list">
+          <article class="workflow-step">
+            <span>01</span>
+            <h3>Capture</h3>
+            <p>Record at 1080p+ using macOS or Windows screen capture tools for best accuracy.</p>
+          </article>
+          <article class="workflow-step">
+            <span>02</span>
+            <h3>Upload</h3>
+            <p>Drop the file into ZASSHA and pick Summary or Detail mode depending on the guidance you need.</p>
+          </article>
+          <article class="workflow-step">
+            <span>03</span>
+            <h3>Hint</h3>
+            <p>Add a short goal statement so AI can focus on the outcome you expect.</p>
+          </article>
+          <article class="workflow-step">
+            <span>04</span>
+            <h3>Review</h3>
+            <p>Inspect the overview, business inference, and operation table with hoverable thumbnails.</p>
+          </article>
+          <article class="workflow-step">
+            <span>05</span>
+            <h3>Export</h3>
+            <p>Send the manual to DOCX, PPTX, or XLSX with consistent naming that mirrors your source video.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="personas">
+        <div class="personas-intro">
+          <h2 class="section-heading">Built for ops, enablement, and QA teams</h2>
+          <p>
+            Anyone tasked with documenting processes can move from raw capture to polished manual without rewriting steps by hand.
+          </p>
+        </div>
+        <div class="personas-grid">
+          <article class="persona-card">
+            <h3>Operations</h3>
+            <p>Standardize cross-team procedures and keep audit logs fresh with every process change.</p>
+          </article>
+          <article class="persona-card">
+            <h3>Customer success</h3>
+            <p>Produce up-to-date walkthroughs for onboarding, support runbooks, and help center refreshes.</p>
+          </article>
+          <article class="persona-card">
+            <h3>Quality assurance</h3>
+            <p>Record a test session and ship reproducible bug reports complete with evidence.</p>
+          </article>
+          <article class="persona-card">
+            <h3>Learning &amp; development</h3>
+            <p>Convert training recordings into step-by-step playbooks for new hires and reskilling projects.</p>
+          </article>
+          <article class="persona-card">
+            <h3>Product management</h3>
+            <p>Document feature walk-throughs so engineers, designers, and stakeholders align on expected behavior.</p>
+          </article>
+          <article class="persona-card">
+            <h3>IT support</h3>
+            <p>Capture troubleshooting sessions and publish ready-to-follow guides for service desks.</p>
+          </article>
+          <article class="persona-card">
+            <h3>New-hire onboarding</h3>
+            <p>Welcome teammates with walkthroughs that mirror real workflows and keep institutional knowledge fresh.</p>
+          </article>
+          <article class="persona-card">
+            <h3>Technical writers</h3>
+            <p>Draft knowledge base articles faster by reusing AI-generated copy and screenshots.</p>
+          </article>
+          <article class="persona-card">
+            <h3>BPO teams</h3>
+            <p>Keep offshore partners aligned with continuously updated, visual instructions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h2 class="section-heading">Frequently asked questions</h2>
+        <div class="faq" data-accordion>
+          <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
+            <div class="faq-item__header">
+              <span class="faq-item__question">Is ZASSHA free?</span>
+              <span class="faq-item__chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="faq-item__content">
+              <p>Yes. It is open source. You only pay Google Gemini API usage when you analyze videos.</p>
+            </div>
+          </button>
+          <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
+            <div class="faq-item__header">
+              <span class="faq-item__question">Which languages are supported?</span>
+              <span class="faq-item__chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="faq-item__content">
+              <p>English and Japanese manuals are supported out of the box, and you can swap between them anytime from the header.</p>
+            </div>
+          </button>
+          <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
+            <div class="faq-item__header">
+              <span class="faq-item__question">Do I need to edit screenshots manually?</span>
+              <span class="faq-item__chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="faq-item__content">
+              <p>Nope. ZASSHA generates thumbnails alongside each detected operation so you can ship documentation with minimal edits.</p>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <section class="cta" id="cta">
+        <h2 class="section-heading">Ready to turn recordings into living manuals?</h2>
+        <p>
+          Clone the repository, connect your Gemini API key, and publish your next standard operating procedure in minutes.
+        </p>
+        <a class="button" href="https://github.com/co-r-e/Zassha" target="_blank" rel="noopener noreferrer">Download on GitHub</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <a class="brand" href="./">
+          <img src="icons/logo.svg" alt="ZASSHA" width="140" height="40" loading="lazy" />
+        </a>
+        <div class="footer-links">
+          <a href="https://co-r-e.net" target="_blank" rel="noopener noreferrer">Company</a>
+          <a href="https://co-r-e.net/contact" target="_blank" rel="noopener noreferrer">Contact</a>
+        </div>
+        <small>© 2025 CORe Inc. All rights reserved.</small>
+      </div>
+    </footer>
+  </body>
+</html>

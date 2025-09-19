@@ -15,11 +15,6 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
-env:
-  NEXT_TELEMETRY_DISABLED: "1"
-  NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}"
-  NEXT_PUBLIC_SITE_URL: "https://${{ github.repository_owner }}.github.io"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,24 +26,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Build static site
         run: npm run build
 
-      - name: Prepare Pages artifact
+      - name: Prepare artifact
         run: |
-          rm -rf docs
-          mv out docs
-          touch docs/.nojekyll
+          rm -rf out
+          mkdir -p out
+          rsync -av --delete \
+            --exclude '.git*' \
+            --exclude 'node_modules' \
+            --exclude 'out' \
+            --exclude '.github' \
+            --exclude 'downloads' \
+            --exclude 'ja/downloads' \
+            ./ out/
+          touch out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: out
 
   deploy:
     runs-on: ubuntu-latest

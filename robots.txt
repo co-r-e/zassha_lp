@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://co-r-e.github.io/zassha_lp/sitemap.xml
