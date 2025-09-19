@@ -113,6 +113,11 @@ a.button.secondary:hover,
   width: auto;
 }
 
+/* Make footer logo large without affecting header */
+.site-footer .brand img {
+  height: clamp(80px, 12vw, 180px);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -432,6 +437,14 @@ main > section:last-of-type {
   line-height: 1.62;
 }
 
+.workflow-note {
+  max-width: 52rem;
+  margin: 0.6rem auto 0;
+  text-align: center;
+  color: rgba(161, 161, 170, 0.75);
+  font-size: 0.98rem;
+}
+
 .personas-intro {
   margin: 0 auto;
   max-width: 52rem;
@@ -582,6 +595,77 @@ main > section:last-of-type {
   min-width: 240px;
 }
 
+/* CTA button – stylish hover animation */
+.cta .button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.cta .button:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 24px 48px -28px rgba(255, 255, 255, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.32) inset;
+}
+
+/* fast sharp shine */
+.cta .button::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -60%;
+  width: 28%;
+  height: 160%;
+  background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-180%) skewX(-20deg);
+  filter: blur(0.5px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cta .button:hover::before {
+  animation: buttonShine 520ms cubic-bezier(.17,.67,.2,1) forwards;
+}
+
+/* sparkle pop */
+.cta .button::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%) scale(0.3) rotate(20deg);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0 32%, rgba(255,255,255,0) 60%),
+    linear-gradient(transparent 45%, rgba(255,255,255,0.95) 50%, transparent 55%),
+    linear-gradient(90deg, transparent 45%, rgba(255,255,255,0.95) 50%, transparent 55%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cta .button:hover::after {
+  animation: sparklePop 420ms cubic-bezier(.2,.7,.2,1) 120ms forwards;
+}
+
+@keyframes buttonShine {
+  0% { transform: translateX(-180%) skewX(-20deg); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(220%) skewX(-20deg); opacity: 0; }
+}
+
+@keyframes sparklePop {
+  0%   { opacity: 0; transform: translateY(-50%) scale(0.2) rotate(25deg); }
+  40%  { opacity: 1; transform: translate(-2px,-12px) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translate(6px,-20px) scale(0.65) rotate(-15deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta .button, .cta .button::before, .cta .button::after { transition: none; animation: none !important; }
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   padding: clamp(3.5rem, 6vw, 4.5rem) 1.5rem clamp(4rem, 6vw, 5rem);
@@ -670,7 +754,7 @@ small {
 }
 
 @media (max-width: 640px) {
-  :root { --header-h: 62px; --hero-gap: 16px; }
+  :root { --header-h: 62px; --hero-gap: 16px; --hero-space-multiplier: 1.5; }
   .site-header {
     position: fixed;
     top: 0;

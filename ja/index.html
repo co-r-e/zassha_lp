@@ -137,8 +137,8 @@
           <p>Word・PowerPoint・Excelに自動フォーマット。スクリーンショットや注釈もセットで出力されます。</p>
         </article>
         <article class="card">
-          <h3>長尺動画も安心</h3>
-          <p>大容量ファイルはレジューム転送に対応。ffmpegを有効にするとサーバー側で分割解析も行えます。</p>
+          <h3>セキュリティも安心</h3>
+          <p>解析はローカルで実行され、動画は外部のデータベースにアップロード・保存されません。送信されるのは、あなたが実行した Gemini API へのリクエストのみで、その内容もあなたが管理できます。</p>
         </article>
       </section>
 
@@ -171,6 +171,9 @@
             <p>DOCX / PPTX / XLSX形式で命名規則付きのファイルとして出力します。</p>
           </article>
         </div>
+        <p class="workflow-note">
+          最初は5分以内・100MB以下の動画でのご利用をおすすめします。
+        </p>
       </section>
 
       <section id="personas">
@@ -221,6 +224,58 @@
       <section id="faq">
         <h2 class="section-heading">よくある質問</h2>
         <div class="faq" data-accordion>
+          <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
+            <div class="faq-item__header">
+              <span class="faq-item__question">始め方を教えてください（ローカル環境）</span>
+              <span class="faq-item__chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="faq-item__content">
+              <ol>
+                <li>
+                  リポジトリをクローンし、ディレクトリに移動します。
+                  <pre><code>git clone https://github.com/co-r-e/Zassha
+cd Zassha</code></pre>
+                </li>
+                <li>
+                  Node 18.18+ を用意し、依存関係をインストールします。
+                  <pre><code>npm install</code></pre>
+                </li>
+                <li>
+                  環境変数ファイルを作成し、Gemini の API キーを設定します。
+                  <pre><code>cp .env.example .env.local
+# その後 .env.local を編集して
+GEMINI_API_KEY=あなたのキー</code></pre>
+                  Gemini の API キーは Google AI Studio で発行し、<code>.env.local</code> に貼り付けてください。
+                </li>
+                <li>
+                  アプリを起動してアクセスします。
+                  <pre><code>npm start</code></pre>
+                  ブラウザで <code>http://localhost:3000</code> を開きます。
+                </li>
+                <li>
+                  <strong>【任意】</strong>ffmpeg を入れてサーバー側の分割解析を有効化します。
+                  <pre><code># macOS (Homebrew)
+brew install ffmpeg
+
+# .env.local に追記
+ZASSHA_SEGMENT_LEN=45</code></pre>
+                </li>
+              </ol>
+            </div>
+          </button>
+          <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
+            <div class="faq-item__header">
+              <span class="faq-item__question">セキュリティについて</span>
+              <span class="faq-item__chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="faq-item__content">
+              <p>
+                ZASSHA の解析はローカルで行われ、動画は外部のデータベースにアップロード・保存されません。Gemini の API キーは
+                <code>.env.local</code> に保存し、git にはコミットされません。外部通信はあなたが開始する Gemini API へのリクエストのみで、送る内容も
+                あなたが管理できます。任意の ffmpeg 分割を有効にしても、処理はローカルで完結します。
+              </p>
+            </div>
+          </button>
           <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
             <div class="faq-item__header">
               <span class="faq-item__question">ZASSHAは無料で使えますか？</span>

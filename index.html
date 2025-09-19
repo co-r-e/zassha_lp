@@ -144,9 +144,9 @@
           </p>
         </article>
         <article class="card">
-          <h3>Works with long recordings</h3>
+          <h3>Private by default</h3>
           <p>
-            Resumable uploads keep analysis smooth. Optionally enable server-side segmentation via ffmpeg for hour-long walkthroughs.
+            Analysis runs locally on your machine—videos aren’t uploaded or stored in any external database. Only requests you initiate to the Gemini API leave your device, and you control exactly what’s sent.
           </p>
         </article>
       </section>
@@ -180,6 +180,9 @@
             <p>Send the manual to DOCX, PPTX, or XLSX with consistent naming that mirrors your source video.</p>
           </article>
         </div>
+        <p class="workflow-note">
+          For your first try, we recommend using a video under 5 minutes and 100&nbsp;MB.
+        </p>
       </section>
 
       <section id="personas">
@@ -232,6 +235,58 @@
       <section id="faq">
         <h2 class="section-heading">Frequently asked questions</h2>
         <div class="faq" data-accordion>
+          <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
+            <div class="faq-item__header">
+              <span class="faq-item__question">How do I get started locally?</span>
+              <span class="faq-item__chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="faq-item__content">
+              <ol>
+                <li>
+                  Clone the repo and enter the folder:
+                  <pre><code>git clone https://github.com/co-r-e/Zassha
+cd Zassha</code></pre>
+                </li>
+                <li>
+                  Use Node 18.18+ and install dependencies:
+                  <pre><code>npm install</code></pre>
+                </li>
+                <li>
+                  Create your env file and add your Gemini key:
+                  <pre><code>cp .env.example .env.local
+# then edit .env.local and set
+GEMINI_API_KEY=YOUR_KEY_HERE</code></pre>
+                </li>
+                <li>
+                  Start the app and open it:
+                  <pre><code>npm start</code></pre>
+                  Visit <code>http://localhost:3000</code>.
+                </li>
+                <li>
+                  <strong>Optional</strong> — enable server-side video chunking (ffmpeg required):
+                  <pre><code># macOS (Homebrew)
+brew install ffmpeg
+
+# in .env.local
+ZASSHA_SEGMENT_LEN=45</code></pre>
+                </li>
+              </ol>
+            </div>
+          </button>
+          <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
+            <div class="faq-item__header">
+              <span class="faq-item__question">Is my data secure?</span>
+              <span class="faq-item__chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="faq-item__content">
+              <p>
+                ZASSHA analyzes videos locally on your machine. Videos are not uploaded to or stored in any external database. Your
+                Gemini API key lives in <code>.env.local</code> and never gets committed to git. Only requests you initiate to the Gemini
+                API leave your machine, and you control what is sent. If you enable optional ffmpeg chunking, processing still happens
+                locally.
+              </p>
+            </div>
+          </button>
           <button class="faq-item" type="button" data-accordion-trigger aria-expanded="false">
             <div class="faq-item__header">
               <span class="faq-item__question">Is ZASSHA free?</span>
