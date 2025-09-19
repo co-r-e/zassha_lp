@@ -140,7 +140,7 @@ a.button.secondary:hover,
 
 .language-toggle {
   position: relative;
-  z-index: 5;
+  z-index: 50; /* ensure container stacks above neighbors */
 }
 
 .language-toggle__button {
@@ -193,7 +193,7 @@ a.button.secondary:hover,
   right: 0;
   top: 100%;
   margin-top: 0.5rem;
-  z-index: 20; /* draw above header content */
+  z-index: 1000; /* draw above header content on mobile too */
   border-radius: 18px;
   background: rgba(17, 17, 19, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -570,6 +570,24 @@ main > section:last-of-type {
   display: block;
 }
 
+/* Mobile: ensure FAQ content wraps within the card */
+@media (max-width: 700px) {
+  .faq-item__content,
+  .faq-item__content p,
+  .faq-item__content li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .faq-item__content pre,
+  .faq-item__content code {
+    white-space: pre-wrap; /* allow wrapping while preserving newlines */
+    overflow-wrap: anywhere; /* break long tokens like URLs */
+    word-break: break-word; /* Safari fallback */
+    max-width: 100%;
+  }
+}
+
 .cta {
   max-width: 52rem;
   margin: clamp(5rem, 7vw, 6rem) auto 0;
@@ -761,7 +779,8 @@ small {
     left: 0;
     right: 0;
     width: 100%;
-    overflow-x: clip;
+    /* allow dropdown to overflow cleanly on iOS Safari */
+    overflow: visible;
   }
   .site-header__inner {
     padding: 1.1rem 0.75rem;
@@ -803,6 +822,17 @@ small {
   }
   .site-header .product-hunt-badge__image {
     width: clamp(96px, 34vw, 124px);
+  }
+  /* Smaller footer logo on mobile */
+  .site-footer .brand img {
+    height: clamp(48px, 12vw, 72px);
+  }
+  /* Anchor the language menu to the viewport on small screens */
+  .language-toggle__menu {
+    position: fixed;
+    right: 0.75rem;
+    top: calc(var(--header-h) + 6px);
+    margin-top: 0;
   }
   .hero {
     padding-top: calc((var(--header-h) + var(--hero-gap)) * var(--hero-space-multiplier));

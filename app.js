@@ -30,6 +30,11 @@ if (languageToggles.length) {
       }
     });
 
+    // Prevent clicks inside the menu from closing it immediately on mobile
+    menu.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+
     options.forEach((button) => {
       button.addEventListener("click", () => {
         const destination = button.dataset.href;
